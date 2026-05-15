@@ -4,7 +4,7 @@ services:
 
     image: mysql:8
 
-    container_name: library_mysql
+    container_name: jenkins_library_mysql
 
     restart: always
 
@@ -22,7 +22,7 @@ services:
 
     build: ./app
 
-    container_name: library_flask
+    container_name: jenkins_library_flask
 
     restart: always
 
