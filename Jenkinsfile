@@ -8,7 +8,7 @@ pipeline {
 
             steps {
 
-                git 'YOUR_GITHUB_REPOSITORY_URL'
+                git 'https://github.com/Vignesh-D18/library-devops-project'
 
             }
 
