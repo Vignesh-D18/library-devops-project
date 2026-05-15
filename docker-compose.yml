@@ -2,16 +2,17 @@ services:
 
   mysql:
 
-  image: mysql:8
+    image: mysql:8
 
-  restart: always
+    restart: always
 
-  environment:
-    MYSQL_ROOT_PASSWORD: NewPassword123
-    MYSQL_DATABASE: librarydb
+    environment:
+      MYSQL_ROOT_PASSWORD: NewPassword123
+      MYSQL_DATABASE: librarydb
 
-  volumes:
-    - ./mysql-init:/docker-entrypoint-initdb.d
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
   flaskapp:
 
     build: ./app
