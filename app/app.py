@@ -13,7 +13,7 @@ while connection is None:
     try:
 
         connection = mysql.connector.connect(
-            host='library_mysql',
+            host='mysql',
             user='root',
             password='NewPassword123',
             database='librarydb'
