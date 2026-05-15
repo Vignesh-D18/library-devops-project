@@ -4,6 +4,16 @@ pipeline {
 
     stages {
 
+        stage('Stop Old Containers') {
+
+            steps {
+
+                bat 'docker-compose down'
+
+            }
+
+        }
+
         stage('Build Docker Containers') {
 
             steps {
