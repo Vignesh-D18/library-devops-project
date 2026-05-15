@@ -2,20 +2,16 @@ services:
 
   mysql:
 
-    image: mysql:8
+  image: mysql:8
 
-    restart: always
+  restart: always
 
-    environment:
-      MYSQL_ROOT_PASSWORD: NewPassword123
-      MYSQL_DATABASE: librarydb
+  environment:
+    MYSQL_ROOT_PASSWORD: NewPassword123
+    MYSQL_DATABASE: librarydb
 
-    ports:
-      - "3310:3306"
-
-    volumes:
-      - ./mysql-init:/docker-entrypoint-initdb.d
-
+  volumes:
+    - ./mysql-init:/docker-entrypoint-initdb.d
   flaskapp:
 
     build: ./app
@@ -23,7 +19,7 @@ services:
     restart: always
 
     ports:
-      - "5001:5000"
+      - "5002:5000"
 
     depends_on:
       - mysql
