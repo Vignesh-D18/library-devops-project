@@ -4,8 +4,6 @@ services:
 
     image: mysql:8
 
-    container_name: jenkins_library_mysql
-
     restart: always
 
     environment:
@@ -21,8 +19,6 @@ services:
   flaskapp:
 
     build: ./app
-
-    container_name: jenkins_library_flask
 
     restart: always
 
