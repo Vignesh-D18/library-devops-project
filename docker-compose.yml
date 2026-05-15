@@ -1,0 +1,33 @@
+services:
+
+  mysql:
+
+    image: mysql:8
+
+    container_name: library_mysql
+
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: NewPassword123
+      MYSQL_DATABASE: librarydb
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
+  flaskapp:
+
+    build: ./app
+
+    container_name: library_flask
+
+    restart: always
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      - mysql
