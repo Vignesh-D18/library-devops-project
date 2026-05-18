@@ -205,6 +205,10 @@ overflow-x:auto;
 color:white;
 margin-bottom:0;
 min-width:700px;
+
+--bs-table-bg:transparent;
+--bs-table-striped-bg:transparent;
+--bs-table-hover-bg:transparent;
 }
 
 .table thead{
@@ -222,15 +226,17 @@ color:white;
 padding:18px;
 vertical-align:middle;
 border-color:rgba(255,255,255,0.08);
-color:#e2e8f0;
+color:white;
+background:transparent;
 }
 
 .table tbody tr{
+background:rgba(255,255,255,0.03);
 transition:0.3s ease;
 }
 
 .table tbody tr:hover{
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.08);
 }
 
 /* Responsive */
