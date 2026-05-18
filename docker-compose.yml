@@ -11,6 +11,7 @@ services:
       MYSQL_DATABASE: librarydb
 
     volumes:
+      - mysql_data:/var/lib/mysql
       - ./mysql-init:/docker-entrypoint-initdb.d
 
   flaskapp:
@@ -24,3 +25,6 @@ services:
 
     depends_on:
       - mysql
+
+volumes:
+  mysql_data:
