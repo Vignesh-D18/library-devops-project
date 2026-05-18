@@ -68,7 +68,7 @@ opacity:0.35;
 
 .main-container{
 width:100%;
-max-width:1200px;
+max-width:1100px;
 position:relative;
 z-index:10;
 }
@@ -80,7 +80,7 @@ background:rgba(255,255,255,0.08);
 backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,0.1);
 border-radius:35px;
-padding:70px 50px;
+padding:80px 50px;
 text-align:center;
 box-shadow:
 0px 10px 40px rgba(0,0,0,0.5),
@@ -92,23 +92,23 @@ position:relative;
 .hero-card::before{
 content:'';
 position:absolute;
-width:200px;
-height:200px;
+width:220px;
+height:220px;
 background:rgba(255,255,255,0.05);
 border-radius:50%;
-top:-60px;
-right:-60px;
+top:-70px;
+right:-70px;
 }
 
 .hero-card::after{
 content:'';
 position:absolute;
-width:150px;
-height:150px;
+width:170px;
+height:170px;
 background:rgba(255,255,255,0.04);
 border-radius:50%;
-bottom:-50px;
-left:-50px;
+bottom:-60px;
+left:-60px;
 }
 
 /* Small Badge */
@@ -176,44 +176,12 @@ transform:translateY(-5px) scale(1.03);
 box-shadow:0px 15px 40px rgba(249,115,22,0.65);
 }
 
-/* Stats Section */
-
-.stats{
-margin-top:60px;
-}
-
-.stat-box{
-background:rgba(255,255,255,0.06);
-border:1px solid rgba(255,255,255,0.08);
-padding:28px;
-border-radius:22px;
-height:100%;
-transition:0.3s ease;
-}
-
-.stat-box:hover{
-transform:translateY(-6px);
-background:rgba(255,255,255,0.09);
-}
-
-.stat-box h3{
-font-size:34px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.stat-box p{
-margin:0;
-font-size:16px;
-color:#cbd5e1;
-}
-
 /* Responsive */
 
 @media(max-width:992px){
 
 .hero-card{
-padding:55px 35px;
+padding:60px 35px;
 }
 
 }
@@ -225,7 +193,7 @@ padding:15px;
 }
 
 .hero-card{
-padding:40px 25px;
+padding:45px 25px;
 border-radius:25px;
 }
 
@@ -240,10 +208,6 @@ line-height:1.7;
 
 .btn-custom{
 width:100%;
-}
-
-.stats{
-margin-top:40px;
 }
 
 }
@@ -270,48 +234,13 @@ DevOps System
 </h1>
 
 <p class="hero-text">
-Welcome to the next-generation Library Management platform built with modern DevOps practices. 
+Welcome to the next-generation Library Management platform built with modern DevOps practices.
 Manage books, users, and administration through a fast, secure, elegant, and fully responsive interface.
 </p>
 
 <a href="/login" class="btn-custom">
 Admin Login
 </a>
-
-<div class="container-fluid stats">
-
-<div class="row g-4">
-
-<div class="col-md-4">
-
-<div class="stat-box">
-<h3>10K+</h3>
-<p>Books Managed</p>
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="stat-box">
-<h3>24/7</h3>
-<p>System Availability</p>
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="stat-box">
-<h3>99.9%</h3>
-<p>Secure Uptime</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 </div>
 
