@@ -20,7 +20,7 @@ services:
     restart: always
 
     ports:
-      - "5002:5000"
+      - "5010:5000"
 
     depends_on:
       - mysql
