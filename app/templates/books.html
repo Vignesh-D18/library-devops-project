@@ -1,55 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Books</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Books Management</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
-body{
-background:#eef2ff;
-overflow-x:hidden;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+overflow-x:hidden;
+color:white;
+}
+
+/* Sidebar */
 
 .sidebar{
-height:100vh;
-background:linear-gradient(to bottom,#0f172a,#1e293b);
-padding:30px 15px;
 position:fixed;
-width:260px;
+top:0;
+left:0;
+width:270px;
+height:100vh;
+background:rgba(15,23,42,0.95);
+backdrop-filter:blur(15px);
+padding:30px 20px;
+border-right:1px solid rgba(255,255,255,0.08);
+z-index:1000;
+overflow-y:auto;
 }
 
-.sidebar h3{
-color:white;
-margin-bottom:40px;
+.logo{
+font-size:28px;
+font-weight:700;
 text-align:center;
-font-weight:bold;
+margin-bottom:45px;
+color:white;
 }
 
 .sidebar a{
-display:block;
-color:white;
+display:flex;
+align-items:center;
+gap:14px;
+padding:15px 18px;
+margin-bottom:12px;
+border-radius:16px;
 text-decoration:none;
-padding:15px;
-margin-bottom:10px;
-border-radius:12px;
+font-size:16px;
+font-weight:500;
+color:#cbd5e1;
+transition:0.3s ease;
 }
 
 .sidebar a:hover{
-background:#334155;
+background:linear-gradient(to right,#2563eb,#7c3aed);
+color:white;
+transform:translateX(5px);
 }
+
+.sidebar a i{
+font-size:18px;
+}
+
+/* Main */
 
 .main{
 margin-left:270px;
 padding:40px;
+min-height:100vh;
+background:
+linear-gradient(135deg,#020617,#111827,#1e293b);
 }
 
-.card{
+/* Heading */
+
+.page-title{
+font-size:42px;
+font-weight:700;
+margin-bottom:35px;
+}
+
+/* Book Cards */
+
+.book-card{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+border-radius:28px;
+padding:30px;
+height:100%;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+transition:0.35s ease;
+position:relative;
+overflow:hidden;
+}
+
+.book-card:hover{
+transform:translateY(-8px);
+}
+
+.book-card::before{
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,255,255,0.05);
+border-radius:50%;
+top:-60px;
+right:-60px;
+}
+
+.book-title{
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+position:relative;
+z-index:2;
+}
+
+.book-info{
+margin-bottom:10px;
+font-size:16px;
+color:#cbd5e1;
+position:relative;
+z-index:2;
+}
+
+.book-info strong{
+color:white;
+}
+
+/* Buttons */
+
+.btn-delete{
+background:linear-gradient(to right,#dc2626,#b91c1c);
 border:none;
-border-radius:20px;
+padding:10px 18px;
+border-radius:12px;
+font-weight:500;
+margin-top:15px;
+transition:0.3s ease;
+}
+
+.btn-delete:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+margin-top:30px;
+margin-bottom:18px;
+font-size:20px;
+font-weight:600;
+position:relative;
+z-index:2;
+}
+
+/* Search */
+
+.search-box{
+height:52px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,0.1);
+color:white;
+padding-left:18px;
+margin-bottom:20px;
+}
+
+.search-box::placeholder{
+color:#cbd5e1;
+}
+
+.search-box:focus{
+background:rgba(255,255,255,0.14);
+color:white;
+box-shadow:none;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+/* Student Buttons */
+
+.student-container{
+max-height:220px;
+overflow-y:auto;
+padding-right:5px;
+}
+
+.student-container::-webkit-scrollbar{
+width:6px;
+}
+
+.student-container::-webkit-scrollbar-thumb{
+background:#475569;
+border-radius:10px;
+}
+
+.student-btn{
+background:linear-gradient(to right,#059669,#047857);
+border:none;
+padding:10px 15px;
+border-radius:12px;
+margin-bottom:10px;
+margin-right:8px;
+font-size:14px;
+font-weight:500;
+display:inline-block;
+text-decoration:none;
+color:white;
+transition:0.3s ease;
+}
+
+.student-btn:hover{
+transform:translateY(-3px);
+background:linear-gradient(to right,#10b981,#059669);
+}
+
+/* Out Of Stock */
+
+.stock-badge{
+display:inline-block;
+padding:10px 18px;
+background:#dc2626;
+border-radius:12px;
+font-weight:600;
+margin-top:10px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.sidebar{
+width:100%;
+height:auto;
+position:relative;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.main{
+margin-left:0;
+padding:25px;
+}
+
+.sidebar a:hover{
+transform:none;
+}
+
+}
+
+@media(max-width:768px){
+
+.page-title{
+font-size:32px;
+}
+
+.book-card{
+padding:25px;
+}
+
+.book-title{
+font-size:24px;
+}
+
 }
 
 </style>
@@ -58,21 +288,22 @@ border-radius:20px;
 
 function searchStudent(bookId) {
 
-    let input =
-    document.getElementById("search"+bookId).value.toLowerCase();
+let input =
+document.getElementById("search"+bookId).value.toLowerCase();
 
-    let buttons =
-    document.querySelectorAll(".student-"+bookId);
+let buttons =
+document.querySelectorAll(".student-"+bookId);
 
-    buttons.forEach(btn => {
+buttons.forEach(btn => {
 
-        let text =
-        btn.innerText.toLowerCase();
+let text =
+btn.innerText.toLowerCase();
 
-        btn.style.display =
-        text.includes(input) ? "inline-block" : "none";
+btn.style.display =
+text.includes(input) ? "inline-block" : "none";
 
-    });
+});
+
 }
 
 </script>
@@ -81,82 +312,113 @@ function searchStudent(bookId) {
 
 <body>
 
+<!-- Sidebar -->
+
 <div class="sidebar">
 
-<h3>
-Library Admin
-</h3>
+<div class="logo">
+📚 Library Admin
+</div>
 
-<a href="/dashboard">Dashboard</a>
+<a href="/dashboard">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
 
-<a href="/books">Books</a>
+<a href="/books">
+<i class="fa-solid fa-book"></i>
+Books
+</a>
 
-<a href="/addbook">Add Book</a>
+<a href="/addbook">
+<i class="fa-solid fa-square-plus"></i>
+Add Book
+</a>
 
-<a href="/users">Users</a>
+<a href="/users">
+<i class="fa-solid fa-users"></i>
+Users
+</a>
 
-<a href="/allocatedbooks">Allocated Books</a>
+<a href="/allocatedbooks">
+<i class="fa-solid fa-book-open-reader"></i>
+Allocated Books
+</a>
 
-<a href="/logout">Logout</a>
+<a href="/logout">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
 
 </div>
 
+<!-- Main Content -->
+
 <div class="main">
 
-<h2 class="mb-4">
+<h1 class="page-title">
 Books Management
-</h2>
+</h1>
 
-<div class="row">
+<div class="row g-4">
 
 {% for book in books %}
 
-<div class="col-md-6">
+<div class="col-lg-6">
 
-<div class="card shadow-lg mb-4">
+<div class="book-card">
 
-<div class="card-body">
+<h3 class="book-title">
+{{ book.title }}
+</h3>
 
-<h4>{{ book.title }}</h4>
+<p class="book-info">
+<strong>Author:</strong> {{ book.author }}
+</p>
 
-<p>Author: {{ book.author }}</p>
+<p class="book-info">
+<strong>Category:</strong> {{ book.category }}
+</p>
 
-<p>Category: {{ book.category }}</p>
+<p class="book-info">
+<strong>Total Quantity:</strong> {{ book.quantity }}
+</p>
 
-<p>Total Quantity: {{ book.quantity }}</p>
-
-<p>Available: {{ book.available }}</p>
+<p class="book-info">
+<strong>Available:</strong> {{ book.available }}
+</p>
 
 <a
 href="/deletebook/{{ book.id }}"
-class="btn btn-danger btn-sm mb-3"
+class="btn btn-delete"
 >
+<i class="fa-solid fa-trash"></i>
 Delete Book
 </a>
 
-<hr>
+<hr class="text-light opacity-25 mt-4">
 
-<h6 class="mb-3">
+<h5 class="section-title">
 Allocate Book
-</h6>
+</h5>
 
 {% if book.available > 0 %}
 
 <input
 type="text"
 id="search{{ book.id }}"
-class="form-control mb-3"
+class="form-control search-box"
 placeholder="Search Student by Name or USN"
 onkeyup="searchStudent('{{ book.id }}')"
 >
 
-<div style="max-height:200px;overflow-y:auto;">
+<div class="student-container">
 
 {% for user in users %}
 
 <a
 href="/allocate/{{ book.id }}/{{ user.id }}"
-class="btn btn-success btn-sm mb-2 student-{{ book.id }}"
+class="student-btn student-{{ book.id }}"
 >
 {{ user.name }} ({{ user.usn }})
 </a>
@@ -167,13 +429,11 @@ class="btn btn-success btn-sm mb-2 student-{{ book.id }}"
 
 {% else %}
 
-<span class="badge bg-danger">
+<div class="stock-badge">
 Out Of Stock
-</span>
+</div>
 
 {% endif %}
-
-</div>
 
 </div>
 
