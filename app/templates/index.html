@@ -1,77 +1,299 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Library Management Devops System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Library Management DevOps System</title>
 
-<style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-body{
-background:linear-gradient(to right,#0f172a,#1e293b);
-color:white;
-min-height:100vh;
-overflow:hidden;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-.hero{
-margin-top:120px;
-}
+    <style>
 
-.hero-card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-border-radius:30px;
-padding:70px;
-box-shadow:0px 10px 40px rgba(0,0,0,0.5);
-}
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
 
-.btn-custom{
-padding:15px 40px;
-border-radius:15px;
-font-size:18px;
-font-weight:bold;
-}
+        body{
+            min-height:100vh;
+            overflow:hidden;
+            background:
+            radial-gradient(circle at top left,#2563eb55,transparent 35%),
+            radial-gradient(circle at bottom right,#9333ea55,transparent 35%),
+            linear-gradient(135deg,#020617,#0f172a,#111827);
+            color:white;
+            position:relative;
+        }
 
-</style>
+        body::before{
+            content:'';
+            position:absolute;
+            width:500px;
+            height:500px;
+            background:#3b82f6;
+            filter:blur(180px);
+            opacity:0.25;
+            top:-120px;
+            left:-120px;
+        }
+
+        body::after{
+            content:'';
+            position:absolute;
+            width:500px;
+            height:500px;
+            background:#8b5cf6;
+            filter:blur(180px);
+            opacity:0.25;
+            bottom:-150px;
+            right:-150px;
+        }
+
+        .navbar-custom{
+            padding:20px 0;
+            z-index:10;
+            position:relative;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:700;
+            letter-spacing:1px;
+            color:white;
+        }
+
+        .hero{
+            height:85vh;
+            display:flex;
+            align-items:center;
+            position:relative;
+            z-index:10;
+        }
+
+        .hero-card{
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.1);
+            backdrop-filter:blur(18px);
+            border-radius:35px;
+            padding:70px;
+            box-shadow:
+            0px 10px 50px rgba(0,0,0,0.6),
+            inset 0px 1px 1px rgba(255,255,255,0.1);
+            overflow:hidden;
+            position:relative;
+        }
+
+        .hero-card::before{
+            content:'';
+            position:absolute;
+            width:200px;
+            height:200px;
+            background:rgba(255,255,255,0.08);
+            border-radius:50%;
+            top:-60px;
+            right:-60px;
+        }
+
+        .hero-card::after{
+            content:'';
+            position:absolute;
+            width:150px;
+            height:150px;
+            background:rgba(255,255,255,0.05);
+            border-radius:50%;
+            bottom:-50px;
+            left:-50px;
+        }
+
+        .badge-custom{
+            display:inline-block;
+            background:rgba(255,255,255,0.1);
+            border:1px solid rgba(255,255,255,0.15);
+            padding:10px 25px;
+            border-radius:50px;
+            margin-bottom:25px;
+            font-size:14px;
+            letter-spacing:1px;
+            text-transform:uppercase;
+        }
+
+        h1{
+            font-size:70px;
+            font-weight:700;
+            line-height:1.2;
+        }
+
+        .highlight{
+            background:linear-gradient(to right,#38bdf8,#a855f7);
+            background-clip:text;
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .hero-text{
+            font-size:20px;
+            color:#cbd5e1;
+            margin-top:25px;
+            line-height:1.8;
+        }
+
+        .btn-custom{
+            margin-top:40px;
+            padding:16px 45px;
+            border:none;
+            border-radius:18px;
+            font-size:18px;
+            font-weight:600;
+            background:linear-gradient(to right,#f59e0b,#f97316);
+            color:white;
+            transition:0.4s ease;
+            box-shadow:0px 10px 25px rgba(249,115,22,0.4);
+        }
+
+        .btn-custom:hover{
+            transform:translateY(-5px) scale(1.03);
+            box-shadow:0px 15px 35px rgba(249,115,22,0.6);
+        }
+
+        .stats{
+            margin-top:50px;
+        }
+
+        .stat-box{
+            background:rgba(255,255,255,0.06);
+            padding:20px;
+            border-radius:20px;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat-box h3{
+            font-size:30px;
+            font-weight:700;
+        }
+
+        .stat-box p{
+            margin:0;
+            color:#cbd5e1;
+        }
+
+        @media(max-width:768px){
+
+            body{
+                overflow:auto;
+            }
+
+            .hero{
+                height:auto;
+                padding-bottom:50px;
+            }
+
+            .hero-card{
+                padding:40px 25px;
+            }
+
+            h1{
+                font-size:42px;
+            }
+
+            .hero-text{
+                font-size:16px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<div class="container hero">
+    <div class="container navbar-custom">
 
-<div class="row justify-content-center">
+        <div class="d-flex justify-content-between align-items-center">
 
-<div class="col-md-10">
+            <div class="logo">
+                📚 Library DevOps
+            </div>
 
-<div class="hero-card text-center">
+            <div>
+                <span class="text-light opacity-75">
+                    Smart Digital Library
+                </span>
+            </div>
 
-<h1 class="display-2 fw-bold">
-Library Management System
-</h1>
+        </div>
 
-<p class="lead mt-4">
-Welcome to Library Management System!!!!!!! 
-</p>
+    </div>
 
-<div class="mt-5">
+    <div class="container hero">
 
-<a href="/login" class="btn btn-warning btn-custom">
-Admin Login
-</a>
+        <div class="row justify-content-center w-100">
 
-</div>
+            <div class="col-lg-11">
 
-</div>
+                <div class="hero-card text-center">
 
-</div>
+                    <div class="badge-custom">
+                        Modern Library Portal
+                    </div>
 
-</div>
+                    <h1>
+                        Next Generation
+                        <span class="highlight">
+                            Library Management
+                        </span>
+                        System
+                    </h1>
 
-</div>
+                    <p class="hero-text">
+                        Experience a powerful and intelligent digital library platform
+                        designed with modern DevOps practices for seamless management,
+                        fast performance, secure access, and an elegant user experience.
+                    </p>
+
+                    <a href="/login" class="btn btn-custom">
+                        Admin Login
+                    </a>
+
+                    <div class="row stats g-4 justify-content-center">
+
+                        <div class="col-md-3">
+                            <div class="stat-box">
+                                <h3>10K+</h3>
+                                <p>Books Managed</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="stat-box">
+                                <h3>99.9%</h3>
+                                <p>System Uptime</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="stat-box">
+                                <h3>24/7</h3>
+                                <p>Secure Access</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 
