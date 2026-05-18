@@ -204,7 +204,7 @@ overflow-x:auto;
 .table{
 color:white;
 margin-bottom:0;
-min-width:700px;
+min-width:800px;
 
 --bs-table-bg:transparent;
 --bs-table-striped-bg:transparent;
@@ -220,6 +220,7 @@ padding:18px;
 border:none;
 font-weight:600;
 color:white;
+text-align:center;
 }
 
 .table td{
@@ -228,6 +229,7 @@ vertical-align:middle;
 border-color:rgba(255,255,255,0.08);
 color:white;
 background:transparent;
+text-align:center;
 }
 
 .table tbody tr{
@@ -465,6 +467,8 @@ onkeyup="searchStudents()"
 
 <tr>
 
+<th>SL No.</th>
+
 <th>Name</th>
 
 <th>USN</th>
@@ -484,6 +488,8 @@ onkeyup="searchStudents()"
 {% for user in users %}
 
 <tr>
+
+<td>{{ loop.index }}</td>
 
 <td>{{ user.name }}</td>
 
